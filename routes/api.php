@@ -19,3 +19,4 @@ use App\Http\Controllers\TestController;
 Route::get("/sort/{string}", [TestController::class, 'sortString']);
 Route::get("/part/{num}", [TestController::class, 'partitionNumber']);
 Route::get("/binary/{string}", [TestController::class, 'binarySwitch']);
+Route::get("/prefixcalc/{string}", [TestController::class, 'prefixCalc']);
