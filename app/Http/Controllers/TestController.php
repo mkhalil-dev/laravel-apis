@@ -33,4 +33,28 @@ class TestController extends Controller
             "new_string" => $num
         ]);
     }
+
+    function binarySwitch($string){
+        $string = str_split($string);
+        $binary = [];;
+        $num_hold = 0;
+        for ($i = 0; $i < sizeof($string); $i++){
+            if(is_numeric($string[$i])){
+                $num_hold .= $string[$i];
+            } else {
+                if($num_hold){
+                    array_push($binary, decbin($num_hold));
+                    $num_hold = 0;
+                }
+                array_push($binary, $string[$i]);
+            }
+        }
+        if($num_hold){
+            array_push($binary, decbin($num_hold));
+        }
+        return response()->json([
+            "status" => "Success",
+            "binary_string" => join($binary)
+        ]);
+    }
 }
