@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 
 class TestController extends Controller
 {
-    function getUsers($name ="john"){
-        $name = str_split($name);
-        usort($name, 'strnatcasecmp');
-        $name = join($name);
+    function getUsers($string ="john"){
+        $string = str_split($string);
+        usort($string, 'strnatcasecmp');
+        $sorted_string = join($string);
         return response()->json([
             "status" => "Success",
-            "message" => $name
+            "new_string" => $sorted_string
         ]);
     }
 }
